@@ -5,12 +5,12 @@ cpus: 1
 provider: virtualbox
 
 folders:
-    - map: /Users/mharmuth/Sites/hi_sulu
+    - map: .
       to: /home/vagrant/Code
-      type: nfs
+      #type: nfs
 
 sites:
-    - map: brainbits-sulu.app
+    - map: sulu.app
       to: /home/vagrant/Code/sulu/web
       type: symfony-sulu
 
