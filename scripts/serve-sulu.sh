@@ -26,7 +26,7 @@ block="server {
     # PROD
     location ~ ^/(website|admin|app)\.php(/|$) {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php7.1-fpm.sock;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
         fastcgi_intercept_errors off;
@@ -37,7 +37,7 @@ block="server {
         # Remove the internal directive to allow URIs like this
         internal;
     }
-    
+
     # strip app.php/ prefix if it is present
     rewrite ^/app\.php/?(.*)\$ /$1 permanent;
 
@@ -81,4 +81,4 @@ block="server {
 echo "$block" > "/etc/nginx/sites-available/$1"
 ln -fs "/etc/nginx/sites-available/$1" "/etc/nginx/sites-enabled/$1"
 service nginx restart
-service php7.0-fpm restart
+service php7.1-fpm restart
