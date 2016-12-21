@@ -7,7 +7,7 @@ provider: virtualbox
 folders:
     - map: .
       to: /home/vagrant/Code
-      #type: nfs
+      type: nfs
 
 sites:
     - map: sulu.app
